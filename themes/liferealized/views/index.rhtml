@@ -1,0 +1,9 @@
+<%# loop through and show posts -%>
+<% for i in (1..@posts.length) -%>
+    <%= 
+      if i == 1
+        render :partial => 'posts/top_item', :locals => {:post => @posts[i - 1]} 
+      else
+        render :partial => 'posts/item', :locals => {:post => @posts[i - 1]} 
+      end %>
+<% end -%>

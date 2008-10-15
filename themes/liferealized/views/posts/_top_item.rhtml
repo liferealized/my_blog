@@ -1,0 +1,19 @@
+<!-- this is post id <%= post.id %> -->
+
+<div class="page_title">
+  <h1><%= link_to post.title, "#{Post.permalink(post)}", :class => 'heading' %></h1>
+  <div class="summary"><%= date_time(post, true) %> <%= author_info(post) %> - <%= post.summary %></div>
+</div>
+
+<div class="item">
+  <%= post.body %>
+  <div class="item_meta">
+    <%= "#{extended_content_link(post, false)}&nbsp;&nbsp;" unless extended_content_link(post, false) == '' %>
+    <span class="item_tags">Filed under: <%= tag_info(post) %></span> -
+    <%# Copy this into your view if you want to show comment information -%>
+    <% if Site.comment_system_on %>Comments: <%= comment_info(post) %><% end %>
+    <%# End comment information -%>
+  </div>
+</div>
+
+<!-- end post id <%= post.id %> -->

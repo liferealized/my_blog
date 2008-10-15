@@ -1,0 +1,1 @@
+A simple log theme with a floating nav bar at the bottom.

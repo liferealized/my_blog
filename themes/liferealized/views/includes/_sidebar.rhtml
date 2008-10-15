@@ -1,0 +1,16 @@
+
+<h3 class="top">Who is this guy</h3>
+<p><%= Site.site_description %></p>
+
+<h3>Syndication - RSS</h3>
+<ul class="syndication">
+  <li><%= link_to "Posts Feed", Site.rss_url %></li>
+  <li><%= link_to "Comments Feed", Site.comments_rss_url %></li>
+</ul>
+
+<h3>Search by</h3>
+<%= Site.list_tags_linked(@tags) %>
+<%= Site.list_authors_linked(@authors_list) %>
+
+<h3>Powered by</h3>
+<p>This weblog is powered by <a href="http://simplelog.net" title="SimpleLog">SimpleLog</a>, a simple <a href="http://rubyonrails.org/">Ruby on Rails</a> weblog.</p>

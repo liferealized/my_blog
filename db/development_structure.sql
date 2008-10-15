@@ -1,0 +1,1 @@
+INSERT INTO schema_info (version) VALUES (28)INSERT INTO schema_info (version) VALUES (28)INSERT INTO schema_info (version) VALUES (28)

@@ -1,0 +1,446 @@
+body {
+	font-family:Arial, Sans-serif;
+	color:#333;
+	text-align:center;
+	background:url(/themes/liferealized/images/body-background.gif) repeat-x top left;
+	/*background:url(/themes/liferealized/images/grid.gif) scroll repeat;*/
+}
+
+a {
+}
+
+a:link {
+	color:#6CB6CE;
+}
+
+a:visited {
+	color:#6CB6CE;
+}
+
+a:hover {
+	background:#6CB6CE;
+	text-decoration:none;
+	color:#fff;
+}
+
+a:active {
+	background:#DEF1F2;
+	text-decoration:none;
+	color:#6CB6CE;
+}
+
+ul {
+	margin:0 2em;
+	
+}
+
+ul ul {
+	margin-top:.7em;
+}
+
+ul li {
+	line-height:1.4em;
+}
+
+/*
+*	= global class styles
+*******************************/
+.fixed-width {
+	margin:0 auto;
+	width:900px;
+	text-align:left;
+}
+
+.image {
+	padding:4px 4px 1px;
+	background:#DEF1F2;
+	border:1px solid #ccc;
+	font-size:.92em;
+	margin-right:0;
+	margin-bottom:1.4em;
+}
+
+.right {
+	float:right;	
+	margin-left:1.25em;
+}
+
+.left {
+	float:left;	
+	margin-right:1.25em;
+}
+
+.clearfix:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+
+/*
+*	= top & masthead
+*******************************/
+
+#masthead {
+	position:fixed;
+	z-index:10;
+	left:0;
+	bottom:0;
+	height:40px;
+	width:100%;
+	background:url(/themes/liferealized/images/mast-head-background.png) no-repeat top left;
+}
+#search-form {
+	position:relative;
+	float:right;
+	margin:15px 0 0;
+	background:#ccc;
+}
+
+#search-form input {
+	font-size:.86em;
+	width:260px;
+}
+
+/*
+*	= navigation
+*******************************/
+#navigation {
+	margin:10px 18px 0 0;
+	padding:0;
+	float:left;
+	list-style:none;
+}
+
+	#navigation li {
+		float:left;
+		list-style:none;
+	}
+	
+	#navigation li a {
+		display:block;
+		height:0px !important;
+		overflow:hidden;
+		padding:30px 0 0;
+		width:88px;
+	}
+
+		#navigation li a.logo {
+			margin-right:54px;
+			width:264px;
+			background:url(/themes/liferealized/images/logo.jpg) no-repeat;
+		}
+
+		#navigation li a.home {
+			background:url(/themes/liferealized/images/nav-home.jpg) no-repeat;
+		}
+		
+		#navigation li a.archives {
+			background:url(/themes/liferealized/images/nav-archives.jpg) no-repeat;
+		}
+		
+		#navigation li a.about {
+			background:url(/themes/liferealized/images/nav-about.jpg) no-repeat;
+		}
+	
+		#navigation li a.active,
+		#navigation li a.active:hover {
+			background-position:0 -60px;
+		}
+		
+		#navigation li a:hover {
+			background-position:0 -30px;
+		}
+
+/*
+*	= headings
+********************************/	
+h1 {
+	color:#333;
+	font:normal 4em Tahoma, Geneva, sans-serif;
+	margin-bottom:.3em;
+}
+
+h2 {
+	font:normal 2em Tahoma, Geneva, sans-serif;
+	margin-bottom:.35em;
+}
+
+div.archive h2 {
+	padding-top:1.5em;
+}
+
+h1 a.heading, h2 a.heading {
+	color:#333;
+	font-family:Tahoma, Geneva, sans-serif;
+	text-decoration:none;
+}
+	
+h1 a.heading:hover, h2 a.heading:hover {
+	color:#000;
+	background:#fff;
+	text-decoration:none;
+}
+
+h3 {
+	font-family:Tahoma, Geneva, sans-serif;
+	line-height:1;
+}
+
+/*
+*	= content
+*******************************/
+div.content {
+	padding:6em 0 6em;
+}
+
+div.summary {
+	font:italic bold 1em Georgia, Times, Serif;
+	color:#666;
+	line-height:1.4em;
+	margin-bottom:1.5em;
+	border-bottom:1px solid #6CB6CE;
+}
+
+div.item,
+div.item_perma,
+div#content {
+	float:left;
+	width:582px;
+	clear:left;
+	padding-bottom:3em;
+}
+
+div.content div.item_meta {
+	font:italic 1em Georgia, Times, Serif;
+	color:#666;
+	line-height:1.5em;
+	padding:0 0 1.5em;
+}
+
+#content {
+	float:left;
+	width:582px;
+	padding:0 0 3em;
+	text-align:left;
+}
+
+div.item p,
+div.item_perma p,
+div#content p {
+	margin-right:88px;
+}
+
+#archive_items {
+	margin-top:3em;
+	width:582px;
+	float:left;
+}
+
+/*
+*	= sidebar & footer
+*******************************/
+#sidebar, #footer {
+	margin:0 0 0 636px;
+	width:264px;
+}
+
+#sidebar h3 {
+	font:bold 1em Tahoma, Geneva, sans-serif;
+	border-bottom:1px solid #DEF1F2;
+	line-height:1.45em;
+	margin-bottom:1.5em;
+	padding-top:1.5em;
+	color:#444;
+}
+
+#sidebar ul {
+	margin:0 2em 1.5em;
+}
+
+#sidebar #tags,
+#sidebar #authors {
+	font-weight:normal;
+	line-height:1.5em;
+}
+
+#sidebar #authors {
+	margin-bottom:1.5em;
+}
+
+#sidebar #tags b,
+#sidebar #authors b {
+	font-weight:normal;
+}
+
+#footer {
+	clear:both;
+	border-top:1px solid #DEF1F2;
+	margin:.45em 18px 0 636px;
+	padding-top:1.5em;
+}
+
+#sidebar ul a {
+	display:block;
+}
+
+/*
+*	= comments
+*******************************/
+#comments {
+	float:left;
+	width:582px;
+	clear:left;
+	padding-bottom:3em;
+}
+
+#comments p {
+	margin:0 88px 0 0;
+}
+
+#comments .gravatar {
+	float:left;
+	background:#DEF1F2 url(../images/default_gravatar.gif) no-repeat top left;
+	margin:0 1.5em 0 0;
+}
+
+div.comment_content {
+	padding-bottom:3em;
+}
+
+div.comment_body {
+	padding-top:1.5em;
+}
+
+#comments .comment_details {
+	font:italic 1em Georgia, Times, Serif;
+	color:#666;
+	line-height:1.5em;
+}
+
+#comments .approval_required {
+  color: #209d20;
+  font-size: 12px;
+  padding: 10px;
+	border: 1px solid #209d20;
+}
+
+#comment_form {
+	margin-top:1.5em;
+	padding:1.5em 0;
+	background:#f1f1f1;
+}
+
+#comment_form label {
+	display:inline;
+	float:left;
+	width:70px;
+	margin:0 1.5em 1.5em 0;
+	text-align:right;
+	font:normal 1em Tahoma, Geneva, sans-serif;
+	line-height:1.5em;
+	hasLayout:true;
+}
+
+#comment_form label.required {
+	font-weight:bold;
+}
+
+#comment_form label.new_row {
+	clear:left;
+}
+
+#comment_form input {
+	font-size:.86em;
+	width:194px;
+	float:left;
+	margin-bottom:1.5em;
+}
+
+#comment_form input.second:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+#comment_form textarea {
+	margin:0 0 1.5em;
+	width:476px;
+	height:15em;
+	font:normal .94em Arial, Sans-serif;
+}
+
+#comment_form div.submit_area {
+	float:right;
+}
+
+#comment_form div.submit_area input {
+	width:auto;
+	margin:0 15px 0 0;
+}
+
+blockquote {
+	color: #666;
+	font-style:italic;
+	font-size:1em;
+	border-left:1px solid #DEF1F2;
+	margin-left:0;
+	padding:1.5em 0 0 3em;
+	background:url(/themes/liferealized/images/quote.gif) no-repeat 8px 8px;
+}
+
+pre {
+	overflow-x:auto;
+	border:1px solid #DEF1F2;
+	padding:1.4em;
+	background:#333;
+	color:#f1f1f1;
+	margin-right:88px;
+}
+
+code {
+	font-family: Monaco, 'Courier New', Courier;
+	font-size: 12px;
+}
+
+small code {
+	font-size:.86em;
+}
+
+small span {
+	font-weight:bold;
+}
+
+.ror_error {
+	font-size: 10px;
+	color: red;
+}
+
+#comments .errorExplanation {
+    font-size: 12px;
+    line-height: 16px;
+    color: #bd0200;
+    padding: 10px;
+	border: 1px solid #bd0200;
+	margin: 5px 0;
+	background-color: #fffaf9;
+}
+
+#comments .errorExplanation h2 {
+	font-size: 14px;
+	margin-top: 0;
+	color: #bd0200;
+	font-weight: bold;
+}
+
+#comments .errorExplanation ul {
+	margin:0 0 0 1.5em;
+}

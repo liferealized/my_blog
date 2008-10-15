@@ -1,0 +1,84 @@
+<div class="page_title">
+  <h1><%= post.title %></h1>
+  <div class="summary"><%= date_time(post, true) %> <%= author_info(post) %> - <%= post.summary %></div>
+</div>
+
+<div class="item_perma">
+  <%= post.body %>
+  <%= extended_content_block(post) %>
+  <div class="item_meta">
+    Filed under: <%= tag_info(post) %>
+  </div>
+</div>
+
+<%# ##################################################### -%>
+<%# This is the logic/code for comments... you can copy   -%>
+<%# this and use it in your themes to support comments    -%>
+<%# ##################################################### -%>
+<% if Site.comment_system_on and post.comment_status != 0 -%>
+<div id="comments">
+    <h3><%= post.comments.length %> comments so far...</h3>
+    <div class="summary">Comments that are off topic or offensive in nature will be removed. 
+      Please be respectful and you will be respected. <%= add_comment_link(post) %></div>
+
+    <% if flash[:notice] -%>
+    <div class="approval_required"><%= flash[:notice] %></div>
+    <% end -%>
+    
+    <% show_gravatars = Site.gravatars_on %>
+    <% for comment in post.comments -%>
+    <div class="comment_content <%= "author" if comment.email == get_pref('AUTHOR_EMAIL') %>" id="c<%= comment.id.to_s %>">
+        <% if show_gravatars -%>
+            <div class="gravatar image"><img src="<%= get_gravatar_url(comment.email) %>"/></div>
+        <% end -%>
+        <% if comment.subject != nil && comment.subject != ''%>
+          <h4><%= comment.subject %></h4>
+        <% end -%>
+        <div class="comment_details">Posted on <%= date_time_comment_linked(comment, post) %> by <%= comment_author(comment) %></div>
+        <div class="comment_body"><%= comment.body %></div>
+    </div>
+    <% end -%>
+    
+    <% if accepting_comments(post) -%>
+        <h3 id="post">Post a comment</h3>
+        <div class="summary">Required fields in <b>bold</b>.</div>
+    
+        <% form_tag(Site.full_url + '/comments/add', :id => 'post_form') do %>
+        <%= hidden_field_tag 'do', '1' %>
+        <%# ###################################################### -%>
+        <%# This is used to check if commenter is human by seeing  -%>
+        <%# if they actually input text into any of the boxes and  -%>
+        <%# requires the additional :onclick and :onkeypress below -%>
+        <%# ###################################################### -%>
+        <%= hidden_field_tag 'human_check', '0' %>
+        <%= hidden_field_tag 'return_url', Post.permalink(post) %>
+        <%= hidden_field_tag 'link', post.permalink %>
+        <%= hidden_field 'comment', 'post_id', :value => post.id.to_s %>
+        <%  temp_repair = error_messages_for('comment') || '' %>
+        <%= temp_repair.gsub('Body raw', 'Body') %>
+   
+        <div id="comment_form" class="clearfix">
+          <label for="comment_name">Name</label>
+          <%= text_field 'comment', 'name' %>
+          <label for="comment_email" class="required">Email</label>
+          <%= text_field 'comment', 'email', :class => 'second' %>
+          <label for="comment_url" class="new_row">URL</label>
+          <%= text_field 'comment', 'url' %>
+          <% if Site.allow_comment_subjects %>
+            <label for="subject">Subject</label>
+            <%= text_field 'comment', 'subject' %>
+          <% end %>
+          <label for="tag_name" class="required new_row comment">Comment</label>
+          <%= text_area 'comment', 'body_raw', :rows => 20, :cols => 45, :wrap => 'virtual', :onkeypress => "this.form.elements['human_check'].value = '8'" %>
+          <div class="submit_area">
+            <%= submit_tag 'Submit comment', :class => 'submit', :onclick => "this.form.elements['human_check'].value = '8'" %>
+          </div>
+        </div>
+    
+        <% end -%>
+    <% end -%>
+  </div>
+<% end -%>
+<%# ##################################################### -%>
+<%# This is the end of the comment logic block            -%>
+<%# ##################################################### -%>

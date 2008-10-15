@@ -1,0 +1,6 @@
+<h1><%= $page_title %></h1>
+<div class="summary">Below is the list of weblog entries for the month of <%= Time.parse("#{params[:month]}/01/#{params[:year]}").strftime('%B, %Y') %>.</div>
+<%# loop through and show posts -%>
+<% for post in @posts -%>
+    <%= render :partial => 'posts/item', :locals => {:post => post} %>
+<% end -%>

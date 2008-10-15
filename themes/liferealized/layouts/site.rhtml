@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= get_pref('LANGUAGE') %>">
+
+<%# please don't remove this! -%>
+<%= Site.powered_by_comment %>
+<%# please don't remove this! -%>
+	
+	<head>
+		<title><%= Site.site_name %>.<%= ' ' + $page_title %></title>
+		<meta name="robots" content="index,follow"/>
+		<meta name="mssmarttagspreventparsing" content="true"/>
+    <%= Site.default_meta_tags %>
+		<%= Site.icbm_meta_tag %>
+		<%= Site.esbn_meta_tag %>
+		<%= Site.issn_meta_tag %>
+		<%= auto_discovery_link_tag :rss, Site.rss_url, :title => 'Primary Feed' %>
+		<%= theme_stylesheet_link_tag 'blue-print-min.css', :media => 'screen' %>
+		<%= theme_stylesheet_link_tag 'screen.css', :title => Site.site_name, :media => 'screen' %>
+		<%= theme_stylesheet_link_tag 'print.css', :media => 'print' %>
+		<!--[if IE]>
+		<%= theme_stylesheet_link_tag 'ie.css', :media => 'screen' %>
+		<![endif]-->		
+		<!--[if lte IE 6]>
+		<%= theme_stylesheet_link_tag 'naughty-ie.css', :media => 'screen' %>
+		<![endif]-->
+		<%= theme_javascript_include_tag 'site' %>
+		<%= theme_javascript_include_tag 'prototype' %>
+		<%= theme_javascript_include_tag 'lightbox' %>
+	</head>
+	<body<%= Site.body_id %>>
+    	<div id="body-wrapper"<%= "class=\"archive\"" if Site.whereami.match('archive') || Site.whereami.match('posts/show') %>>
+    		<div class="fixed-width content clearfix">
+    		  <%= yield %>
+    		  <div id="sidebar">
+    		    <%=
+              if Site.whereami.match('about') 
+                render :partial => 'includes/about_sidebar'
+              else
+                render :partial => 'includes/sidebar'
+              end
+            %>
+          </div>
+    	    <div id="footer">
+    	        <%= render :partial => 'includes/footer' %>
+    	    </div>
+    		</div>      
+    		<div id="masthead">
+    		  <div class="fixed-width">
+  	        <ul id="navigation">
+  	          <li><%= link_to Preference.get_setting('site_name'), "#{Site.full_url}", :title => Preference.get_setting('site_name'), :class => 'logo' %>
+  	          </li>
+  	          <li><%= 
+  	                if Site.is_home_page
+  	                  link_to 'Home', "#{Site.full_url}", :title => 'Home', :class => 'home active' 
+  	                else
+  	                  link_to 'Home', "#{Site.full_url}", :title => 'Home', :class => 'home'
+  	                end %>
+  	          </li>
+  	          <li><%= 
+  	                if Site.whereami.match('archive') || Site.whereami.match('posts/show')
+  	                  link_to 'Archives', "#{Site.full_url}/archives", :title => 'Archives', :class => 'archives active'
+  	                else
+  	                  link_to 'Archives', "#{Site.full_url}/archives", :title => 'Archives', :class => 'archives'
+  	                end %>
+  	          </li>
+  	          <li><%= 
+  	                if Site.whereami.match('about')
+  	                  link_to 'About', Site.link_to_page('about'), :title => 'About', :class => 'about active'
+  	                else
+  	                  link_to 'About', Site.link_to_page('about'), :title => 'About', :class => 'about'
+  	                end %>
+  	          </li>
+  		      </ul>
+    		    <%# start the form tag for (quick) search results
+    		      # TODO: implement ajax search-%>
+            <% form_tag({:controller => 'search', :action => 'full'}, :id => 'search-form') do -%>
+              <input type="text" name="q" id="q" value="Type something and hit enter to search..." onfocus="searchFocus()"/>
+            <% end -%>
+          </div>
+        </div>
+      </div>
+    	<%= Site.mint_tag %>
+	</body>
+</html>

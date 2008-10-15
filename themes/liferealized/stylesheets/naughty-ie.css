@@ -1,0 +1,48 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{
+	zoom:1;
+}
+
+html {
+	overflow:hidden;
+}
+
+body {
+	height:100%;
+	overflow-y:auto;
+	text-align:center;
+}
+
+* html body {
+	overflow-y:scroll;
+}
+
+#masthead {
+	width:auto;
+	position:absolute;
+	bottom:-1px;
+	padding-right:20px;
+	behavior: url(/themes/liferealized/javascripts/iepngfix.htc);
+}
+
+#search-form input {
+	font-size:.86em;
+	width:258px;
+}
+
+#navigation li a {
+	font-size:0px;
+	line-height:0;
+}
+
+#sidebar {
+	float:right;
+	margin-left:0;
+}
+
+#comment_form label {
+	position:inherit;
+}
+
+pre {
+	width:498px;
+}

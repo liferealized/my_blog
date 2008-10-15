@@ -1,0 +1,11 @@
+# Logfile created on Sat May 10 08:20:57 -0400 2008 by /
+[Blacklist 05-10-2008 12:20:58]: Email contained blacklisted item: "ttt@ttt.com", blocking comment.
+[Blacklist 05-10-2008 12:20:58]: Body contained blacklisted item: "tt[0-9]+", blocking comment.
+[Blacklist 05-10-2008 12:32:40]: Email contained blacklisted item: "ttt@ttt.com", blocking comment.
+[Blacklist 05-10-2008 12:32:40]: Body contained blacklisted item: "tt[0-9]+", blocking comment.
+[Blacklist 05-10-2008 12:37:40]: Email contained blacklisted item: "ttt@ttt.com", blocking comment.
+[Blacklist 05-10-2008 12:37:40]: Body contained blacklisted item: "tt[0-9]+", blocking comment.
+[Blacklist 07-12-2008 14:16:43]: Email contained blacklisted item: "ttt@ttt.com", blocking comment.
+[Blacklist 07-12-2008 14:16:43]: Body contained blacklisted item: "tt[0-9]+", blocking comment.
+[Blacklist 07-12-2008 14:17:08]: Email contained blacklisted item: "ttt@ttt.com", blocking comment.
+[Blacklist 07-12-2008 14:17:08]: Body contained blacklisted item: "tt[0-9]+", blocking comment.

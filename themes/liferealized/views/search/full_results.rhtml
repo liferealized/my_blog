@@ -1,0 +1,19 @@
+<h1>Search Results</h1>
+<% if @posts and @posts.length > 0 -%>
+<%# there were posts returned by this search -%>
+<div class="summary">I found <%= pluralize(@posts.length, 'result') %> for your search:</div>
+<div id="content">
+<ol>
+    <% for post in @posts -%>
+	<li><a href="<%= Post.permalink(post) %>" title="View &quot;<%= post.title %>&quot;"><%= post.title %></a>:&nbsp;&nbsp;<%= post.summary %></li> 
+	<% end -%>
+</ol>
+</div>
+<% else -%>
+<% # no results, return message %>
+
+<div class="summary">There were no results, sorry. Try being more specific or use a different query.</div>
+<div id="content">
+  <p>No content retrieved. :-(</p>
+</div>
+<% end -%>
